@@ -28,12 +28,6 @@ namespace Triangles
                     double y2 = Convert.ToDouble(Regex.Replace(line, pattern, "$4"));
                     double x3 = Convert.ToDouble(Regex.Replace(line, pattern, "$5"));
                     double y3 = Convert.ToDouble(Regex.Replace(line, pattern, "$6"));
-                    Console.WriteLine(x1);
-                    Console.WriteLine(y1);
-                    Console.WriteLine(x2);
-                    Console.WriteLine(y2);
-                    Console.WriteLine(x3);
-                    Console.WriteLine(y3);
                     Point point1 = new Point(x1, y1);
                     Point point2 = new Point(x2, y2);
                     Point point3 = new Point(x3, y3);
@@ -47,8 +41,11 @@ namespace Triangles
                     { }
                 }
             }
+            Console.WriteLine("Периметр прямоугольных треугольников:");
             Console.WriteLine(Average.Perimeter(triangles));
+            Console.WriteLine("Периметр равнобедренных треугольников:");
             Console.WriteLine(Average.Area(triangles));
+            Console.WriteLine("Кол-во добавленных треугольников:");
             Console.WriteLine(triangles.Count);
         }
     }
