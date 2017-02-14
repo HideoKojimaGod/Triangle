@@ -32,13 +32,24 @@ namespace Triangles
                     Point point2 = new Point(x2, y2);
                     Point point3 = new Point(x3, y3);
                     Triangle triangle = new Triangle(point1, point2, point3);
-                    double a = triangle.edge1.Length();
-                    double b = triangle.edge2.Length();
-                    double c = triangle.edge3.Length();
-                    if (a + b > c && a + c > b && b + c > a)
-                        triangles.Add(triangle);
-                    else
-                    { }
+                    double a = triangle.edge1;
+                    double b = triangle.edge2;
+                    double c = triangle.edge3;
+                    Exception ex = new Exception("Привет, ты лох");
+                    try
+                    {
+                        if (a + b > c && a + c > b && b + c > a)
+                            ;
+                        else
+                        {
+                            throw ex = new Exception("Привет, ты лох");
+                        }
+                    }
+                    catch (ex)
+                    {
+
+                    }
+                
                 }
             }
             Console.WriteLine("Периметр прямоугольных треугольников:");
@@ -47,6 +58,7 @@ namespace Triangles
             Console.WriteLine(Average.Area(triangles));
             Console.WriteLine("Кол-во добавленных треугольников:");
             Console.WriteLine(triangles.Count);
+            
         }
     }
 }

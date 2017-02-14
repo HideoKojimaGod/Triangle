@@ -8,15 +8,19 @@ namespace Triangles
 {
     class Edge
     {
-        public Point point1, point2;
+        readonly Point point1, point2;
         public Edge(Point point1, Point point2)
         {
             this.point1 = point1;
             this.point2 = point2;
         }
-        public double Length()
+        public double Length
         {
-            return Math.Sqrt(Math.Pow(point1.x - point2.x, 2) + Math.Pow(point1.y - point2.y, 2));
+            get
+            {
+                return Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2));
+            }
+            
         }
     }
 }

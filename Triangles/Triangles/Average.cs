@@ -18,7 +18,7 @@ namespace Triangles
             double perimeter = 0;
             foreach (Triangle triangle in triangles)
             {
-                if (triangle.IsRight())
+                if (triangle.IsRight)
                 {
                     count++;
                     perimeter += triangle.Perimeter;
@@ -33,7 +33,7 @@ namespace Triangles
             double area = 0;
             foreach (Triangle triangle in triangles)
             {
-                if (triangle.IsIsosceles())
+                if (triangle.IsIsosceles)
                 {
                     count++;
                     area += triangle.Area;
