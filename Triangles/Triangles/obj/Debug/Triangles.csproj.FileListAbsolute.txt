@@ -1,0 +1,6 @@
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\bin\Debug\Triangles.exe.config
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\obj\Debug\Triangles.csprojResolveAssemblyReference.cache
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\bin\Debug\Triangles.exe
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\bin\Debug\Triangles.pdb
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\obj\Debug\Triangles.exe
+c:\users\ск\documents\visual studio 2015\Projects\Triangles\Triangles\obj\Debug\Triangles.pdb
