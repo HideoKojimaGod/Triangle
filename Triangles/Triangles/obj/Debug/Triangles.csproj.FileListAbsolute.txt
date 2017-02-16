@@ -10,3 +10,9 @@ C:\Users\student\Desktop\Triangles\Triangles\obj\Debug\Triangles.pdb
 C:\Users\student\Desktop\Triangles\Triangles\obj\Debug\Triangles.csprojResolveAssemblyReference.cache
 C:\Users\student\Desktop\Triangles\Triangles\bin\Debug\Triangles.exe
 C:\Users\student\Desktop\Triangles\Triangles\bin\Debug\Triangles.pdb
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\bin\Debug\Triangles.exe.config
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\obj\Debug\Triangles.exe
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\obj\Debug\Triangles.pdb
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\bin\Debug\Triangles.exe
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\bin\Debug\Triangles.pdb
+C:\Users\СК\Desktop\Triangle-master\Triangles\Triangles\obj\Debug\Triangles.csprojResolveAssemblyReference.cache

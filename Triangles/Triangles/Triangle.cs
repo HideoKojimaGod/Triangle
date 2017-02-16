@@ -13,14 +13,23 @@ namespace Triangles
         public readonly double edge1, edge2, edge3;
         public Triangle(Point point1, Point point2, Point point3)
         {
-         
+            var edge1 = new Edge(point1, point2).Length;
+            var edge2 = new Edge(point2, point3).Length;
+            var edge3 = new Edge(point3, point1).Length;
+            if (edge1 + edge2 > edge3 && edge1 + edge3 > edge2 && edge2 + edge3 > edge1)
+            {
+                this.point1 = point1;
+                this.point2 = point2;
+                this.point3 = point3;
+                this.edge1 = edge1;
+                this.edge2 = edge2;
+                this.edge3 = edge3;
+            }
+            else
+            {
+                throw new Exception("Невозможно создать треугольник с данными точками");
+            }
 
-            this.point1 = point1;
-            this.point2 = point2;
-            this.point3 = point3;
-            edge1 = new Edge(point1, point2).Length;
-            edge2 = new Edge(point2, point3).Length;
-            edge3 = new Edge(point3, point1).Length;
         }
         public double Perimeter
         {

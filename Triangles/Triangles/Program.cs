@@ -14,7 +14,8 @@ namespace Triangles
 
         static void Main(string[] args)
         {
-            ArrayList triangles = new ArrayList();
+            var triangles = new List<Triangle>();
+            Polygon polygon;
             using (StreamReader sr = new StreamReader("input.txt"))
             {
                 string pattern = @"([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]*";
@@ -31,26 +32,30 @@ namespace Triangles
                     Point point1 = new Point(x1, y1);
                     Point point2 = new Point(x2, y2);
                     Point point3 = new Point(x3, y3);
-                    Triangle triangle = new Triangle(point1, point2, point3);
-                    double a = triangle.edge1;
-                    double b = triangle.edge2;
-                    double c = triangle.edge3;
-                    Exception ex = new Exception("Привет, ты лох");
                     try
                     {
-                        if (a + b > c && a + c > b && b + c > a)
-                            ;
-                        else
-                        {
-                            throw ex = new Exception("Привет, ты лох");
-                        }
+                        var triangle = new Triangle(point1, point2, point3);
+                        triangles.Add(triangle);
                     }
-                    catch (ex)
+                    catch (Exception e)
                     {
-
-                    }
-                
+                        Console.WriteLine(e.Message);
+                    } 
                 }
+            }
+            using (StreamReader sr = new StreamReader("input2.txt"))
+            {
+                string pattern = @"([0-9]*\,?[0-9]+)[ ]+([0-9]*\,?[0-9]+)[ ]*";
+                Regex regex = new Regex(pattern);
+                var point = new List<Point>();
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    double x = Convert.ToDouble(Regex.Replace(line, pattern, "$1"));
+                    double y = Convert.ToDouble(Regex.Replace(line, pattern, "$2"));
+                    point.Add(new Point(x, y));
+                }
+                polygon = new Polygon(point);
             }
             Console.WriteLine("Периметр прямоугольных треугольников:");
             Console.WriteLine(Average.Perimeter(triangles));
@@ -58,7 +63,11 @@ namespace Triangles
             Console.WriteLine(Average.Area(triangles));
             Console.WriteLine("Кол-во добавленных треугольников:");
             Console.WriteLine(triangles.Count);
-            
+            Console.WriteLine("Площадь многоугольника:");
+            Console.WriteLine(polygon.Area);
+            Console.WriteLine("Периметр многоугольника:");
+            Console.WriteLine(polygon.Perimeter);
+
         }
     }
 }

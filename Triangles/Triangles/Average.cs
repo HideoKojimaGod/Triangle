@@ -12,7 +12,7 @@ namespace Triangles
 {
     static class Average
     {
-        public static double Perimeter(ArrayList triangles)
+        public static double Perimeter(List<Triangle> triangles)
         {
             int count = 0;
             double perimeter = 0;
@@ -27,7 +27,7 @@ namespace Triangles
             return count != 0 ? perimeter / count : 0;
         }
 
-        public static double Area(ArrayList triangles)
+        public static double Area(List<Triangle> triangles)
         {
             int count = 0;
             double area = 0;
