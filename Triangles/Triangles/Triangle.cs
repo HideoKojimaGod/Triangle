@@ -9,8 +9,8 @@ namespace Triangles
 {
     class Triangle
     {
-        public readonly Point point1, point2, point3;
-        public readonly double edge1, edge2, edge3;
+        public readonly Point Point1, Point2, Point3;
+        public readonly double Edge1, Edge2, Edge3;
         public Triangle(Point point1, Point point2, Point point3)
         {
             var edge1 = new Edge(point1, point2).Length;
@@ -18,16 +18,16 @@ namespace Triangles
             var edge3 = new Edge(point3, point1).Length;
             if (edge1 + edge2 > edge3 && edge1 + edge3 > edge2 && edge2 + edge3 > edge1)
             {
-                this.point1 = point1;
-                this.point2 = point2;
-                this.point3 = point3;
-                this.edge1 = edge1;
-                this.edge2 = edge2;
-                this.edge3 = edge3;
+                this.Point1 = point1;
+                this.Point2 = point2;
+                this.Point3 = point3;
+                this.Edge1 = edge1;
+                this.Edge2 = edge2;
+                this.Edge3 = edge3;
             }
             else
             {
-                throw new Exception("Невозможно создать треугольник с данными точками");
+                throw new ArgumentException("Невозможно создать треугольник с данными точками");
             }
 
         }
@@ -35,38 +35,46 @@ namespace Triangles
         {
             get
             {
-                return edge1 + edge2 + edge3;
+                return Edge1 + Edge2 + Edge3;
             }
         }
         public double Area
         {
             get
             {
-                double HalfPerimeter = (edge1 + edge2 + edge3) / 2;
+                double HalfPerimeter = Perimeter / 2;
                 return Math.Sqrt(HalfPerimeter *
-                    (HalfPerimeter - edge1) * (HalfPerimeter - edge2) * (HalfPerimeter - edge3));
+                    (HalfPerimeter - Edge1) * (HalfPerimeter - Edge2) * (HalfPerimeter - Edge3));
             }
         }
         public bool IsRight
         {
             get
             {
-                double a = edge1;
-                double b = edge2;
-                double c = edge3;
-                return a == Math.Sqrt(b * b + c * c) || b == Math.Sqrt(a * a + c * c)
-                    || c == Math.Sqrt(b * b + a * a);
+                return Edge1 == Math.Sqrt(Edge2 * Edge2 + Edge3 * Edge3) 
+                    || Edge2 == Math.Sqrt(Edge1 * Edge1 + Edge3 * Edge3)
+                    || Edge3 == Math.Sqrt(Edge2 * Edge2 + Edge1 * Edge1);
             }
         }
         public bool IsIsosceles
         {
             get
             {
-                double a = edge1;
-                double b = edge2;
-                double c = edge3;
-                return a == b || b == c || c == a;
+                return Edge1 == Edge2 || Edge2 == Edge3 || Edge3 == Edge1;
             }
+        }
+        public static bool operator ==(Triangle a, Triangle b)
+        {
+            return a.Edge1 == b.Edge1 && a.Edge2 == b.Edge2 ||
+                   a.Edge1 == b.Edge2 && a.Edge2 == b.Edge1 ||
+                   a.Edge3 == b.Edge3 && a.Edge2 == b.Edge2 ||
+                   a.Edge3 == b.Edge2 && a.Edge2 == b.Edge3 ||
+                   a.Edge1 == b.Edge1 && a.Edge3 == b.Edge3 ||
+                   a.Edge1 == b.Edge3 && a.Edge3 == b.Edge1;
+        }
+        public static bool operator !=(Triangle a, Triangle b)
+        {
+            return !(a == b);
         }
     }
 }

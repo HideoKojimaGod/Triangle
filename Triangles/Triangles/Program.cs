@@ -37,7 +37,7 @@ namespace Triangles
                         var triangle = new Triangle(point1, point2, point3);
                         triangles.Add(triangle);
                     }
-                    catch (Exception e)
+                    catch (ArgumentException e)
                     {
                         Console.WriteLine(e.Message);
                     } 
@@ -58,16 +58,16 @@ namespace Triangles
                 polygon = new Polygon(point);
             }
             Console.WriteLine("Периметр прямоугольных треугольников:");
-            Console.WriteLine(Average.Perimeter(triangles));
-            Console.WriteLine("Периметр равнобедренных треугольников:");
-            Console.WriteLine(Average.Area(triangles));
+            Console.WriteLine(Average.GetPerimeter(triangles));
+            Console.WriteLine("Площадь равнобедренных треугольников:");
+            Console.WriteLine(Average.GetArea(triangles));
             Console.WriteLine("Кол-во добавленных треугольников:");
             Console.WriteLine(triangles.Count);
             Console.WriteLine("Площадь многоугольника:");
             Console.WriteLine(polygon.Area);
             Console.WriteLine("Периметр многоугольника:");
             Console.WriteLine(polygon.Perimeter);
-
+            Console.WriteLine(triangles[0] == triangles[1]);
         }
     }
 }
